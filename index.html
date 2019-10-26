@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,33 @@
     <title>Jungle Adventure</title>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    
+
+<body class="text-center">
+    <header>
+        <h1>Welcome to Jungle Adventures</h1>
+    </header>
+
+    <main>
+        <p id="gameText">Would you like to play our game?</p>
+    </main>
+    <!-- <button onclick="getUserInput()"><input id="userInput" type="text" value="yes/no">Submit</button> -->
+
+
+    <footer class="fixed-bottom m-md-4">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" value="yes/no" aria-label="userInput" aria-describedby="userInput">
+            <div class="input-group-append">
+                <button onclick="getUserInput()" class="btn btn-outline-secondary" type="button">Submit</button>
+            </div>
+        </div>
+    </footer>
+
+
+
 </body>
+
 </html>
