@@ -13,12 +13,12 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body class="text-center">
+<body class="text-center m-2">
     <header>
-        <h1 id="welcome">Welcome to Jungle Adventures</h1>
+        <h3 id="welcome">Welcome to Jungle Adventures</h3>
     </header>
 
-    <main>
+    <main class="mt-5 pt-5">
         <p id="gameText">Would you like to play our game?</p>
         <button type="button" onclick="userWantsToPlay()" class="btn btn-primary">YES!</button>
     </main>
@@ -27,7 +27,8 @@
 
     <footer class="fixed-bottom m-md-4 d-none">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" value="yes/no" aria-label="userInput" aria-describedby="userInput">
+            <input type="text" class="form-control" onfocus="this.value=''" value="type your selection here"
+                aria-label="userInput" aria-describedby="userInput">
             <div class="input-group-append">
                 <button onclick="getUserInput()" class="btn btn-outline-secondary" type="button">Submit</button>
             </div>
