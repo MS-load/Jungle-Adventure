@@ -1,99 +1,57 @@
 
-/**This function confirms the user wants to play*/
+/**
+ * confirms the user wants to play*/
 function userWantsToPlay() {
     alert("Great then let's get started")
     let playerName = prompt("What's your name?")
-    playingField(playerName)
+    setUpPlayField(playerName)
+    beginGame()
 }
 
-/**This function sets the playing field
+/**
+ * sets the playing field
  * @param {string} name adds player name to the welcome text 
 */
-function playingField(name) {
+function setUpPlayField(name) {
     let welcome = document.getElementById("welcome")
-    welcome.innerText = "Hello " + name + ", \n" + welcome.innerText
+    welcome.innerHTML = "Hello " + name + ", <br>" + welcome.innerHTML
 
     let hide = document.querySelector("main .btn")
     hide.style.display = "none"
     let unHide = document.querySelector("footer")
     unHide.classList.remove("d-none")
-
-    //------------------PLAYER BEGINS THE GAME-----------
-    let gameText = document.getElementById("gameText")
-    gameText.innerText = "Jungles form a magical place, and you find your self admist one\n" + scene0.discription
-
 }
 
-
-//----------------GAME SET UP-------------------
-
-function controls(walk,choice,look,help,pick){
- this.walk = walk;
- this.choice = choice;
- this.look = look;
- this.help = help;
- this.pick = pick;
-}
-
-function scene(description,control,pick){
-    this.description = description;
-    this.control = control;
-    this.pick = pick;
-}
-
-let scene0 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene1 = new scene ("elephant herd .....what do you choose to do attack or avoid ?","choice")
-let scene2 = new scene ("Hungry you find a tree bearing beautiful furits .....what do you choose to do eat or skip?","choice")
-let scene3 = new scene ("See a small stream .....what do you choose to do jump or walk along ?","walk")
-let scene4 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene5 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene6 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene7 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene8 = new scene ("You arrive at a cross road where .... which way would you go left right or straight?","walk")
-let scene9 = new scene ("DEAD GAME OVER")
-let scene10 = new scene ("YOU WON")
-
-//Object items decribes the various things that the user can carry
-let items = {
-    "item1": "Binocuars",
-    "item2": "Rope",
-    "item3": "Water Bottle",
-    "item4": "Boat",
-    "item5": "logs"
-}
-
-//Object actions decribes the various actions that the user can perform
-let actions = {
-    "look up": "The sun is shining and its a really hot day ...",
-    "pick item": "You've picked it but remember not to carry too mnay things its a long walk",
-    "jump": "Thats was a huge leap",
-    "climb": "That was tiring climbing all the way up here ",
-    "run": "Phew! close call! Good thing that you were quick",
-}
-
-// function scene(sceneNumber, description, direction) {
-//     this.sceneNumber = sceneNumber;
-//     this.description = description;
-//     this.direction = direction;
-
-//     updateScene(){
-
-//     }
-// }
-
-// let changeScenes = [
-//     new scene (01,"Jungles form a magical place, and you find your self admist one .....what do you choose to do ?" )
-// ]
-
-/**This function records the players input
- * @param  {string} userInput gives the users response after converting it to lowercase
+/**
+ * records player input
  */
-function getPlayerInput(playerInput) {
-    let gameText = document.getElementById("gameText")
+
+
+
+function getPlayerInput() {
     let getPlayerInput = document.querySelector(".form-control").value
     playerInput = getPlayerInput.toLowerCase()
-    playerChoice(playerInput)
+
+    switch (i) {
+        case "0":
+            getUserInputScene0()
+            break;
+        case "1":
+            getUserInputScene1()
+            break;
+        case "2":
+            getUserInputScene2()
+            break;
+        case "3":
+            getUserInputScene3()
+            break;
+        case "4":
+            getUserInputScene4()
+            break;
+    }
+
 }
+
 /**This is fuction allows us to call the getUserInput funtion on pressing the Enter key
  */
 document.onkeydown = function () {
@@ -102,28 +60,222 @@ document.onkeydown = function () {
     }
 }
 
-function playerChoice(value){
-    let command = value.split(" ")[0]
-     switch (command) {
-        case "go":
-            let action = value.split(" ")[1]
-            changeScene(action)
-            break;
-        // case "right": changeScene("right")
-        //     break;
-        // case "straight": changeScene("straight")
-        //     break;
-        // case "back": changeScene("back")
-        //     break;
-        default:
-            alert("I'm sorry, but that's not really an option you have!")
+/**
+ * game begins
+ */
+function beginGame() {
+    let gameText = document.getElementById("gameText")
+    gameText.innerHTML = "Jungles form a magical place, and you find your self admist one." + scenes[0]
+    return i = "0"
+}
+
+function getUserInputScene0() {
+
+    if (playerInput === "right") {
+        gameText.innerHTML = gameText.innerHTML + scenes[1]
+        return i = "1"
+    }
+    else if (playerInput === "straight") {
+        gameText.innerHTML = gameText.innerHTML + scenes[2]
+        return i = "2"
+    }
+    else if (playerInput === "left") {
+        gameText.innerHTML = gameText.innerHTML + scenes[3]
+        return i = "3"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
+    }
+}
+
+function getUserInputScene1() {
+
+    if (playerInput === "attack") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+    }
+    else if (playerInput === "avoid") {
+        gameText.innerHTML = gameText.innerHTML + scenes[4]
+        return i = "4"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[1])
+    }
+    else {
+        displayInvalidMove()
+    }
+
+}
+function getUserInputScene2() {
+
+    if (playerInput === "eat") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+    }
+    else if (playerInput === "abstain") {
+        gameText.innerHTML = gameText.innerHTML + scenes[6]
+        return i = "6"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[2])
+    }
+    else {
+        displayInvalidMove()
+    }
+}
+
+function getUserInputScene3() {
+
+    if (playerInput === "walk") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+    }
+    else if (playerInput === "jump") {
+        gameText.innerHTML = gameText.innerHTML + scenes[5]
+        return i = "5"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[1])
+    }
+    else {
+        displayInvalidMove()
+    }
+}
+
+
+function getUserInputScene4() {
+
+    if (playerInput === "right") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+    }
+    else if (playerInput === "straight") {
+        gameText.innerHTML = gameText.innerHTML + scenes[5]
+        return i = "5"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
+    }
+}
+
+
+function getUserInputScene5() {
+
+    if (playerInput === "right") {
+        gameText.innerHTML = gameText.innerHTML + scenes[8]
+        return i = "8"
+    }
+    else if (playerInput === "left") {
+        gameText.innerHTML = gameText.innerHTML + scenes[7]
+        return i = "7"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
+    }
+}
+
+function getUserInputScene6() {
+
+    if (playerInput === "right") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+
+    }
+    else if (playerInput === "left") {
+        gameText.innerHTML = gameText.innerHTML + scenes[8]
+        return i = "8"
+
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
+    }
+
+}
+function getUserInputScene7() {
+
+    if (playerInput === "right") {
+        gameText.innerHTML = gameText.innerHTML + scenes[2]
+        return i = "2"
+
+    }
+    else if (playerInput === "left") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
+    }
+
+}
+function getUserInputScene8() {
+
+    if (playerInput === "right") {
+        displayWinner()
+
+    }
+    else if (playerInput === "left") {
+        gameText.innerHTML = gameText.innerHTML + scenes[9]
+        return i = "9"
+
+    }
+    else if (playerInput === "help") {
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    }
+    else {
+        displayInvalidMove()
     }
 
 }
 
-let start = "scene0"
 
-function changeScene(action) {
-    start = scenes[start].choices[action]
-    gameText.append("\n" + scenes[start].discription)
+function displayInvalidMove() {
+    alert("I'm sorry, but that's not really an option you have! Try again or type 'help'")
 }
+
+function displayWinner() {
+    var winnerImage = document.createElement("IMG");
+    winnerImage.setAttribute("src", "./media/win.jpg");
+    winnerImage.setAttribute("width", "304");
+    winnerImage.setAttribute("height", "228");
+    document.body.appendChild(winnerImage);
+}
+
+let scenes = [
+    "<br> You arrive at a cross road where .... which way would you go <b>left</b>,<b> right</b> or <b>straight</b>?",
+    "<br> elephant herd .....what do you choose to do <b>attack</b> or avoid ?",
+    "<br> Hungry you find a tree bearing beautiful furits .....what do you choose to do eat or abstain?",
+    "<br> See a small stream .....what do you choose to do jump or walk along ?",
+    "<br> You arrive at a cross road where .... which way would you go right or straight?",
+    "<br> You arrive at a cross road where .... which way would you go left right or straight?",
+    "<br> You arrive at a cross road where .... which way would you go left right or straight?",
+    "<br> You arrive at a cross road where .... which way would you go left right or straight?",
+    "<br> DEAD GAME OVER"
+]
+
+let help = [
+    "<b>left right straight</b>",
+    "<b>attack avoid</b>",
+    "<b>eat abstain</b>",
+    "<b>jump walk</b>",
+    "<b>left right straight</b>",
+    "<b>left right straight</b>",
+    "<b>left right straight</b>",
+    "<b>left right straight</b>",
+]
+
+
