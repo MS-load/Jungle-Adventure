@@ -1,2 +1,0 @@
-ask how to make a text bold in the string 
-how to use get the player name out of the function 

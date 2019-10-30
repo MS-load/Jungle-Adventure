@@ -1,6 +1,6 @@
-
 /**
- * confirms the user wants to play*/
+ * confirms the user wants to play
+ */
 function userWantsToPlay() {
     alert("Great then let's get started")
     let playerName = prompt("What's your name?")
@@ -15,7 +15,6 @@ function userWantsToPlay() {
 function setUpPlayField(name) {
     let welcome = document.getElementById("welcome")
     welcome.innerHTML = "Hello " + name + ", <br>" + welcome.innerHTML
-
     let hide = document.querySelector("main .btn")
     hide.style.display = "none"
     let unHide = document.querySelector("footer")
@@ -25,34 +24,36 @@ function setUpPlayField(name) {
 /**
  * records player input
  */
-
-
-
 function getPlayerInput() {
     let getPlayerInput = document.querySelector(".form-control").value
     playerInput = getPlayerInput.toLowerCase()
 
-    switch (i) {
-        case "0":
-            getUserInputScene0()
+    switch (sceneNumber) {
+        case "0": changeScene0()
             break;
-        case "1":
-            getUserInputScene1()
+        case "1": changeScene1()
             break;
-        case "2":
-            getUserInputScene2()
+        case "2": changeScene2()
             break;
-        case "3":
-            getUserInputScene3()
+        case "3": changeScene3()
             break;
-        case "4":
-            getUserInputScene4()
+        case "4": changeScene4()
+            break;
+        case "5": changeScene5()
+            break;
+        case "6": changeScene6()
+            break;
+        case "7": changeScene7()
+            break;
+        case "8": changeScene8()
+            break;
+        case "9": changeScene9()
             break;
     }
-
 }
 
-/**This is fuction allows us to call the getUserInput funtion on pressing the Enter key
+/**
+ * calls the getUserInput on pressing the Enter key
  */
 document.onkeydown = function () {
     if (window.event.keyCode == '13') {
@@ -66,22 +67,26 @@ document.onkeydown = function () {
 function beginGame() {
     let gameText = document.getElementById("gameText")
     gameText.innerHTML = "Jungles form a magical place, and you find your self admist one." + scenes[0]
-    return i = "0"
+    return sceneNumber = "0"
 }
 
-function getUserInputScene0() {
+/**
+ * changes scene0
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene0() {
 
     if (playerInput === "right") {
         gameText.innerHTML = gameText.innerHTML + scenes[1]
-        return i = "1"
+        return sceneNumber = "1"
     }
     else if (playerInput === "straight") {
         gameText.innerHTML = gameText.innerHTML + scenes[2]
-        return i = "2"
+        return sceneNumber = "2"
     }
     else if (playerInput === "left") {
         gameText.innerHTML = gameText.innerHTML + scenes[3]
-        return i = "3"
+        return sceneNumber = "3"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -90,16 +95,19 @@ function getUserInputScene0() {
         displayInvalidMove()
     }
 }
-
-function getUserInputScene1() {
+/**
+ * changes scene1
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene1() {
 
     if (playerInput === "attack") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
     }
     else if (playerInput === "avoid") {
         gameText.innerHTML = gameText.innerHTML + scenes[4]
-        return i = "4"
+        return sceneNumber = "4"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[1])
@@ -107,17 +115,20 @@ function getUserInputScene1() {
     else {
         displayInvalidMove()
     }
-
 }
-function getUserInputScene2() {
+/**
+ * changes scene2
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene2() {
 
     if (playerInput === "eat") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
     }
     else if (playerInput === "abstain") {
         gameText.innerHTML = gameText.innerHTML + scenes[6]
-        return i = "6"
+        return sceneNumber = "6"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[2])
@@ -126,16 +137,20 @@ function getUserInputScene2() {
         displayInvalidMove()
     }
 }
+/**
+ * changes scene3
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
 
-function getUserInputScene3() {
+function changeScene3() {
 
     if (playerInput === "walk") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
     }
     else if (playerInput === "jump") {
         gameText.innerHTML = gameText.innerHTML + scenes[5]
-        return i = "5"
+        return sceneNumber = "5"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[1])
@@ -144,17 +159,20 @@ function getUserInputScene3() {
         displayInvalidMove()
     }
 }
+/**
+ * changes scene4
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
 
-
-function getUserInputScene4() {
+function changeScene4() {
 
     if (playerInput === "right") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
     }
     else if (playerInput === "straight") {
         gameText.innerHTML = gameText.innerHTML + scenes[5]
-        return i = "5"
+        return sceneNumber = "5"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -163,17 +181,20 @@ function getUserInputScene4() {
         displayInvalidMove()
     }
 }
+/**
+ * changes scene5
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
 
-
-function getUserInputScene5() {
+function changeScene5() {
 
     if (playerInput === "right") {
         gameText.innerHTML = gameText.innerHTML + scenes[8]
-        return i = "8"
+        return sceneNumber = "8"
     }
     else if (playerInput === "left") {
         gameText.innerHTML = gameText.innerHTML + scenes[7]
-        return i = "7"
+        return sceneNumber = "7"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -182,17 +203,20 @@ function getUserInputScene5() {
         displayInvalidMove()
     }
 }
-
-function getUserInputScene6() {
+/**
+ * changes scene6
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene6() {
 
     if (playerInput === "right") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
 
     }
     else if (playerInput === "left") {
         gameText.innerHTML = gameText.innerHTML + scenes[8]
-        return i = "8"
+        return sceneNumber = "8"
 
     }
     else if (playerInput === "help") {
@@ -203,16 +227,20 @@ function getUserInputScene6() {
     }
 
 }
-function getUserInputScene7() {
+/**
+ * changes scene7
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene7() {
 
     if (playerInput === "right") {
         gameText.innerHTML = gameText.innerHTML + scenes[2]
-        return i = "2"
+        return sceneNumber = "2"
 
     }
     else if (playerInput === "left") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -222,7 +250,11 @@ function getUserInputScene7() {
     }
 
 }
-function getUserInputScene8() {
+/**
+ * changes scene8
+ * @return {string} sceneNumber gives us the next scene for the user input
+ */
+function changeScene8() {
 
     if (playerInput === "right") {
         displayWinner()
@@ -230,7 +262,7 @@ function getUserInputScene8() {
     }
     else if (playerInput === "left") {
         gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return i = "9"
+        return sceneNumber = "9"
 
     }
     else if (playerInput === "help") {
@@ -242,11 +274,15 @@ function getUserInputScene8() {
 
 }
 
-
+/**
+ * alerts the user that the move is not possible
+ */
 function displayInvalidMove() {
     alert("I'm sorry, but that's not really an option you have! Try again or type 'help'")
 }
-
+/**
+ * displays the winning page
+ */
 function displayWinner() {
     var winnerImage = document.createElement("IMG");
     winnerImage.setAttribute("src", "./media/win.jpg");
@@ -268,14 +304,12 @@ let scenes = [
 ]
 
 let help = [
-    "<b>left right straight</b>",
-    "<b>attack avoid</b>",
-    "<b>eat abstain</b>",
-    "<b>jump walk</b>",
-    "<b>left right straight</b>",
-    "<b>left right straight</b>",
-    "<b>left right straight</b>",
-    "<b>left right straight</b>",
+    "left right straight",
+    "attack avoid",
+    "eat abstain",
+    "jump walk",
+    "left right straight",
+    "left right straight",
+    "left right straight",
+    "left right straight",
 ]
-
-
