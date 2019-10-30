@@ -27,10 +27,10 @@ function getPlayerName() {
 function setUpPlayField(name) {
     let welcome = document.querySelector(".welcome")
     welcome.innerHTML = "Hello " + name + ", <br>" + welcome.innerHTML
-    let hide = document.querySelector("main .btn")
-    hide.style.display = "none"
-    let unHide = document.querySelector(".playerInput")
-    unHide.classList.remove("d-none")
+    let hideNameField = document.querySelector("main .btn")
+    hideNameField.style.display = "none"
+    let unHideInputField = document.querySelector(".playerInput")
+    unHideInputField.classList.remove("d-none")
 }
 
 /**
@@ -66,9 +66,8 @@ function getPlayerInput() {
             break;
         case "8": changeScene8()
             break;
-        case "9": changeScene9()
-            break;
     }
+
 }
 
 /**
@@ -111,8 +110,8 @@ function changeScene0() {
 function changeScene1() {
 
     if (playerInput === "attack") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "avoid") {
         gameText.innerHTML = gameText.innerHTML + scenes[4]
@@ -132,8 +131,8 @@ function changeScene1() {
 function changeScene2() {
 
     if (playerInput === "eat") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "abstain") {
         gameText.innerHTML = gameText.innerHTML + scenes[6]
@@ -154,8 +153,8 @@ function changeScene2() {
 function changeScene3() {
 
     if (playerInput === "walk") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "jump") {
         gameText.innerHTML = gameText.innerHTML + scenes[5]
@@ -176,8 +175,8 @@ function changeScene3() {
 function changeScene4() {
 
     if (playerInput === "right") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "straight") {
         gameText.innerHTML = gameText.innerHTML + scenes[5]
@@ -219,8 +218,8 @@ function changeScene5() {
 function changeScene6() {
 
     if (playerInput === "right") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
 
     }
     else if (playerInput === "left") {
@@ -248,8 +247,8 @@ function changeScene7() {
 
     }
     else if (playerInput === "left") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -270,9 +269,8 @@ function changeScene8() {
 
     }
     else if (playerInput === "left") {
-        gameText.innerHTML = gameText.innerHTML + scenes[9]
-        return sceneNumber = "9"
-
+        gameText.innerHTML = scenes[9]
+        displayGameOver()
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -281,6 +279,19 @@ function changeScene8() {
         displayInvalidMove()
     }
 
+}
+/**
+ * displays game over
+ */
+function displayGameOver() {
+    let HideInputField = document.querySelector(".playerInput")
+    HideInputField.style.display = "none"
+
+    var winnerImage = document.createElement("IMG");
+    winnerImage.setAttribute("src", "./media/Scene9.jpg");
+    winnerImage.setAttribute("width", "304");
+    winnerImage.setAttribute("height", "228");
+    document.body.appendChild(winnerImage);
 }
 
 /**
@@ -293,6 +304,9 @@ function displayInvalidMove() {
  * displays the winning page
  */
 function displayWinner() {
+    let HideInputField = document.querySelector(".playerInput")
+    HideInputField.style.display = "none"
+
     var winnerImage = document.createElement("IMG");
     winnerImage.setAttribute("src", "./media/win.jpg");
     winnerImage.setAttribute("width", "304");
@@ -309,7 +323,8 @@ let scenes = [
     "<br> You arrive at a cross road where .... which way would you go left right or straight?",
     "<br> You arrive at a cross road where .... which way would you go left right or straight?",
     "<br> You arrive at a cross road where .... which way would you go left right or straight?",
-    "<br> DEAD GAME OVER"
+    "<br> You arrive at a cross road where .... which way would you go left right or straight?",
+    "<br> DEAD GAME OVER",
 ]
 
 let help = [

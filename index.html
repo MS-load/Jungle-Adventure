@@ -16,6 +16,9 @@
 <body class="text-center text-white bg">
 
     <header>
+        <div class="alert alert-success" role="alert">
+            This is a primary alert—check it out!
+        </div>
         <h3 class="welcome pt-5 mt-2">Welcome to Jungle Adventures</h3>
     </header>
 
@@ -29,16 +32,21 @@
                 <div class="input-group-append">
                     <button onclick="getPlayerName()" class="btn btn-success" type="button">GO</button>
                 </div>
+
             </div>
         </div>
+        <img src="https://img.icons8.com/officel/100/000000/parrot.png">
     </main>
 
     <footer class="fixed-bottom d-flex justify-content-center">
+        <div>
+
+        </div>
         <div class="input-group mb-3 col-md-4 d-none playerInput">
-            <input type="text" class="form-control action" value="type your selection here" aria-label="playerInput"
-                aria-describedby="playerInput">
+            <input type="text" class="form-control action" onfocus="this.value=''" value="type your selection here"
+                aria-label="playerInput" aria-describedby="playerInput">
             <div class="input-group-append">
-                <button onclick="getPlayerInput()" class="btn btn-outline-secondary" type="button">Submit</button>
+                <button onclick="getPlayerInput()" class="btn btn-success" type="button">Submit</button>
             </div>
         </div>
     </footer>
