@@ -2,8 +2,20 @@
  * confirms the user wants to play
  */
 function userWantsToPlay() {
-    alert("Great then let's get started")
-    let playerName = prompt("What's your name?")
+    let gameText = document.getElementById("gameText")
+    gameText.innerHTML = "Great then let's get started.<br>What's your name?"
+    let playButton = document.querySelector("main .btn")
+    playButton.style.display = "none"
+    let nameField = document.querySelector(".userInput")
+    nameField.classList.remove("d-none")
+}
+/**
+ * gets the players name
+ */
+function getPlayerName() {
+    let playerName = document.querySelector(".name").value
+    let nameField = document.querySelector(".userInput")
+    nameField.style.display = "none"
     setUpPlayField(playerName)
     beginGame()
 }
@@ -13,19 +25,26 @@ function userWantsToPlay() {
  * @param {string} name adds player name to the welcome text 
 */
 function setUpPlayField(name) {
-    let welcome = document.getElementById("welcome")
+    let welcome = document.querySelector(".welcome")
     welcome.innerHTML = "Hello " + name + ", <br>" + welcome.innerHTML
     let hide = document.querySelector("main .btn")
     hide.style.display = "none"
-    let unHide = document.querySelector("footer")
+    let unHide = document.querySelector(".playerInput")
     unHide.classList.remove("d-none")
 }
 
 /**
+ * game begins
+ */
+function beginGame() {
+    gameText.innerHTML = "Jungles form a magical place, and you find your self admist one." + scenes[0]
+    return sceneNumber = "0"
+}
+/**
  * records player input
  */
 function getPlayerInput() {
-    let getPlayerInput = document.querySelector(".form-control").value
+    let getPlayerInput = document.querySelector(".action").value
     playerInput = getPlayerInput.toLowerCase()
 
     switch (sceneNumber) {
@@ -60,16 +79,6 @@ document.onkeydown = function () {
         getPlayerInput();
     }
 }
-
-/**
- * game begins
- */
-function beginGame() {
-    let gameText = document.getElementById("gameText")
-    gameText.innerHTML = "Jungles form a magical place, and you find your self admist one." + scenes[0]
-    return sceneNumber = "0"
-}
-
 /**
  * changes scene0
  * @return {string} sceneNumber gives us the next scene for the user input
