@@ -27,7 +27,7 @@ function getPlayerName() {
 */
 function setUpPlayField(name) {
     const welcome = document.querySelector(".welcome")
-    welcome.innerHTML = "Hello " + name + ", <br>Welcome to " + welcome.innerHTML
+    welcome.innerHTML = "Hello " + name + ", <br>Welcome to" + welcome.innerHTML
     const hideNameField = document.querySelector("main .btn")
     hideNameField.style.display = "none"
     const unHideInputField = document.querySelector(".playerInput")
@@ -105,12 +105,7 @@ function changeScene0() {
         return sceneNumber = "3"
     }
     else if (playerInput === "help") {
-        getModal()
-        function getModal(){
-
-            $("#myModal").modal();
-
-        };
+        alert("Try using one of the following commands to get passed this stage:" + help[0])
     }
     else {
         displayInvalidMove()

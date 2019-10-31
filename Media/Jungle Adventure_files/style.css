@@ -28,7 +28,8 @@ b {
 }
 
 main {
-    max-height: 45vh;
+    /* background: rgba(0, 0, 0, 0.3); */
+    max-height: 50vh;
     overflow: auto;
 }
 
