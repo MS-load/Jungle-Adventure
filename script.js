@@ -14,7 +14,8 @@ function userWantsToPlay() {
  * gets the players name
  */
 function getPlayerName() {
-    let playerName = document.querySelector(".name").value
+    let input1 = document.querySelector(".name")
+    let playerName = input1.value
     let nameField = document.querySelector(".userInput")
     nameField.style.display = "none"
     setUpPlayField(playerName)
@@ -51,7 +52,9 @@ function beginGame() {
  * adds a background to the div
  */
 function getPlayerInput() {
-    let getPlayerInput = document.querySelector(".action").value
+    let input2 = document.querySelector(".action")
+    let getPlayerInput = input2.value
+    getPlayerInput = ""
     playerInput = getPlayerInput.toLowerCase()
     switch (sceneNumber) {
         case "0": changeScene0()
@@ -80,11 +83,12 @@ function getPlayerInput() {
 /**
  * calls the getUserInput on pressing the Enter key
  */
-document.onkeydown = function () {
-    if (window.event.keyCode == "13") {
+document.addEventListener("keypress", function (event) {
+    console.log(event)
+    if (event.keyCode == "13") {
         getPlayerInput()
     }
-}
+})
 
 /**
  * changes scene0
@@ -112,10 +116,7 @@ function changeScene0() {
 
     }
     else {
-        // let attempt = 0
-        // for (attempt = 0, attempt < 3; attempt++) {
-        //     displayInvalidMove()
-        // }
+
         displayInvalidMove()
     }
 }
