@@ -3,7 +3,7 @@
  */
 function userWantsToPlay() {
     let gameText = document.getElementById("gameText")
-    gameText.innerHTML = "Great then let's get started.<br>What's your name?"
+    gameText.innerHTML = scenes[10]
     let playButton = document.querySelector("main .btn")
     playButton.style.display = "none"
     let nameField = document.querySelector(".userInput")
@@ -41,7 +41,7 @@ function setUpPlayField(name) {
  * game begins
  */
 function beginGame() {
-    gameText.innerHTML = "Jungles form a magical place, and you find your self admist one." + scenes[0]
+    gameText.innerHTML = scenes[0]
     return sceneNumber = "0"
 }
 
@@ -104,15 +104,18 @@ function changeScene0() {
         gameText.innerHTML += scenes[3]
         return sceneNumber = "3"
     }
-    else if (playerInput === "help") {
-        getModal()
-        function getModal(){
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("climb a tree")
+    }
 
-            $("#myModal").modal();
+    else if (playerInput === "look") {
 
-        };
     }
     else {
+        // let attempt = 0
+        // for (attempt = 0, attempt < 3; attempt++) {
+        //     displayInvalidMove()
+        // }
         displayInvalidMove()
     }
 }
@@ -122,16 +125,16 @@ function changeScene0() {
  */
 function changeScene1() {
 
-    if (playerInput === "attack") {
+    if (playerInput === "eat") {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "avoid") {
+    else if (playerInput === "proceed") {
         gameText.innerHTML += scenes[4]
         return sceneNumber = "4"
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[1])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("poison")
     }
     else {
         displayInvalidMove()
@@ -143,16 +146,16 @@ function changeScene1() {
  */
 function changeScene2() {
 
-    if (playerInput === "eat") {
+    if (playerInput === "to be filled") {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "abstain") {
+    else if (playerInput === "banana") {
         gameText.innerHTML += scenes[6]
         return sceneNumber = "6"
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[2])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("banana")
     }
     else {
         displayInvalidMove()
@@ -165,16 +168,16 @@ function changeScene2() {
 
 function changeScene3() {
 
-    if (playerInput === "walk") {
+    if (playerInput === "to be filled") {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "jump") {
+    else if (playerInput === "life vest") {
         gameText.innerHTML += scenes[5]
         return sceneNumber = "5"
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[1])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("life vest")
     }
     else {
         displayInvalidMove()
@@ -186,16 +189,16 @@ function changeScene3() {
  */
 function changeScene4() {
 
-    if (playerInput === "right") {
+    if (playerInput === "to be filled") {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "straight") {
+    else if (playerInput === "climb a tree") {
         gameText.innerHTML += scenes[5]
         return sceneNumber = "5"
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("climb a tree")
     }
     else {
         displayInvalidMove()
@@ -207,16 +210,16 @@ function changeScene4() {
  */
 function changeScene5() {
 
-    if (playerInput === "right") {
+    if (playerInput === "to be filled") {
         gameText.innerHTML += scenes[8]
-        return sceneNumber = "8"
+        displayWinner()
     }
-    else if (playerInput === "left") {
+    else if (playerInput === "wait patiently") {
         gameText.innerHTML += scenes[7]
         return sceneNumber = "7"
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("wait patiently")
     }
     else {
         displayInvalidMove()
@@ -235,11 +238,11 @@ function changeScene6() {
     }
     else if (playerInput === "left") {
         gameText.innerHTML += scenes[8]
-        return sceneNumber = "8"
+        displayWinner()
 
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("tiger")
     }
     else {
         displayInvalidMove()
@@ -259,8 +262,8 @@ function changeScene7() {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("tiger")
     }
     else {
         displayInvalidMove()
@@ -279,8 +282,8 @@ function changeScene8() {
         gameText.innerHTML = scenes[9]
         displayGameOver()
     }
-    else if (playerInput === "help") {
-        alert("Try using one of the following commands to get passed this stage:" + help[0])
+    else if (playerInput === "talk") {
+        gameText.innerHTML += jumbleWord("tiger")
     }
     else {
         displayInvalidMove()
@@ -309,12 +312,23 @@ function displayInvalidMove() {
 function displayWinner() {
     let HideInputField = document.querySelector(".playerInput")
     HideInputField.style.display = "none"
-
-    var winnerImage = document.createElement("IMG");
-    winnerImage.setAttribute("src", "./media/win.jpg");
-    winnerImage.setAttribute("width", "304");
-    winnerImage.setAttribute("height", "228");
-    document.body.appendChild(winnerImage);
+    document.querySelector("body").style.backgroundImage = "url(./Media/Scene9.jpg)"
+    let welcome = document.querySelector(".welcome")
+    welcome.innerHTML = " "
+    setTimeout(function () { location.reload() }, 5000)
 }
 
+function jumbleWord(word) {
+    const alphabetArray = word.split("")
+    const jumbledArray = []
+    const length = alphabetArray.length
+    for (i = 0; i < length; i++) {
+        const arrayIndex = Math.floor(Math.random() * alphabetArray.length)
+        jumbledArray.push(alphabetArray[arrayIndex])
+        alphabetArray.splice(arrayIndex, 1)
+    }
 
+    const jumbledWord = jumbledArray.join("")
+    console.log(jumbledWord)
+    return "<br>Decode this to get past the scene : <b>" + jumbledWord + "</b>"
+}
