@@ -1,7 +1,6 @@
 //Global Variables
 const input1 = document.querySelector(".name")
 const input2 = document.querySelector(".action")
-let invalidMove = 0
 
 /**
  * calls the gePLayerName on pressing the Enter key
@@ -131,7 +130,6 @@ function displayNext(option, arrayNumber) {
         hint.classList.add("d-none")
         return sceneNumber = arrayNumber
     }
-
 }
 
 /**
@@ -154,14 +152,9 @@ function changeScene0() {
         displayNext("look", 0)
     }
     else {
-        invalidMove++
-        for (invalidMove = 0; invalidMove < 3; invalidMove++) {
-            displayInvalidMove(invalidMove)
-            console.log(invalidMove)
-            break
+            displayInvalidMove()
         }
     }
-}
 
 /**
  * changes scene1 to the next required scene based on players response
@@ -331,13 +324,9 @@ function changeScene8() {
 /**
  * alerts the user that the move is not possible NOT WORKING
  */
-function displayInvalidMove(number) {
-    if (number < 3) {
+function displayInvalidMove() {
         alert("I'm sorry, but that's not really an option you have! Try again or type 'help'")
-    }
-    else {
-        displayGameResult()
-    }
+ 
 }
 
 /**
@@ -348,14 +337,14 @@ function displayGameResult(gameResult) {
     const HideInputField = document.querySelector(".playerInput")
     HideInputField.style.display = "none"
     if (gameResult === "win") {
-        document.querySelector("body").style.backgroundImage = "url(./Media/Scene9.jpg)"
+        document.querySelector("body").style.backgroundImage = "url(./Media/GameOver.jpg)"
     }
     else {
-        document.querySelector("body").style.backgroundImage = "url(./Media/Scene9.jpg)"
+        document.querySelector("body").style.backgroundImage = "url(./Media/GameOver.jpg)"
     }
     let welcome = document.querySelector(".welcome")
     welcome.innerHTML = " "
-    setTimeout(function () { location.reload() }, 5000)
+    // setTimeout(function () { location.reload() }, 5000)
 }
 
 /**

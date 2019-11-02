@@ -1,7 +1,0 @@
->how to get enter to do two different functions
->clear the input filed each instance
->
->
->
->
-Demo file: https://ms-load.github.io/Jungle-Adventure/
