@@ -79,25 +79,26 @@ function getPlayerInput() {
     const getPlayerInput = input2.value
     playerInput = getPlayerInput.toLowerCase()
 
-    if (playerInput !== "quit")
-    {switch (sceneNumber) {
-        case 0: changeScene0()
-            break;
-        case 1: changeScene1()
-            break;
-        case 2: changeScene2()
-            break;
-        case 3: changeScene3()
-            break;
-        case 4: changeScene4()
-            break;
-        case 5: changeScene5()
-            break;
-        case 6: changeScene6()
-            break;
-        case 7: changeScene7()
-            break;
-    }}
+    if (playerInput !== "quit") {
+        switch (sceneNumber) {
+            case 0: changeScene0()
+                break;
+            case 1: changeScene1()
+                break;
+            case 2: changeScene2()
+                break;
+            case 3: changeScene3()
+                break;
+            case 4: changeScene4()
+                break;
+            case 5: changeScene5()
+                break;
+            case 6: changeScene6()
+                break;
+            case 7: changeScene7()
+                break;
+        }
+    }
     else {
         displayGameResult("loose", 8)
     }

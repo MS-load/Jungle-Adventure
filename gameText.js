@@ -1,30 +1,30 @@
 const scenes = [
     "Your journey begins with a fork in the road. Do you want to go <b>right</b>, <b>left</b> or <b>straight</b>?",
 
-    "<br> You have been walking for hours and you start feeling hungry.\
+    "<p class='border-top'>You have been walking for hours and you start feeling hungry.\
      You see a delicious looking fruit hanging from a tree.\
-     Do you want to <b>eat</b> it or <b>proceed</b> without a break?",
+     Do you want to <b>eat</b> it or <b>proceed</b> without a break?</p>",
 
-    "<br> After hours of walking, you have set up camp for the night.\
+    "<p class='border-top'>After hours of walking, you have set up camp for the night.\
      When you wake up, you find out that a curious monkey is playing with your bottle of water.\
-     How do you get it back from him?",
+     <b> How do you get it back from him?</b></p>",
 
-    "<br> After walking for hours, you come across a wide stream.\
-      The current is not too strong, but it seems quite deep. How do you cross it?",
+    "<p class='border-top'>After walking for hours, you come across a wide stream.\
+      The current is not too strong, but it seems quite deep. <b>How do you cross it?</b></p>",
 
-    "<br> You continue along your path, but you hear something. You soon realize that it is a huge herd of elephants.\
-      You are one tiny person and you don't want to be in their way. What do you do?",
+    "<p class='border-top'>You continue along your path, but you hear something. You soon realize that it is a huge herd of elephants.\
+      You are one tiny person and you don't want to be in their way. <b>What do you do?</b></p>",
 
-    "<br> You continue along your path, but you see a huge bear blocking your way. \
-    It is looking directly at you. What do you do <b>run away</b> or <b>play dead</b>?",
+    "<p class='border-top'>You continue along your path, but you see a huge bear blocking your way. \
+    It is looking directly at you. What do you do <b>run away</b> or <b>play dead</b>?</p>",
 
-    "<br>As you meander deeper into the thick jungle you happen to meet a fellow traveler.\
+    "<p class='border-top'>As you meander deeper into the thick jungle you happen to meet a fellow traveler.\
      It then suddenly begins to rain, you must now decide if you <b>seek shelter</b> with the fellow traveler,\
-     <b>set up camp</b> on your own or <b>continue</b> your mission alone",
+     <b>set up camp</b> on your own or <b>continue</b> your mission alone</p>",
 
-    "<br>You are happy to have found some company after a long journey. The fellow traveller shares his food\
+    "<p class='border-top'>You are happy to have found some company after a long journey. The fellow traveller shares his food\
     and water. He also knows the perfect location to spot the tiger. However he will share this only with \
-    someone worthy. He then questions you; does a Tigers urine smell like buttered popcorn?",
+    someone worthy.<br>He then questions you:<br><b>Does a Tigers urine smell like buttered popcorn?</b></p>",
 
     "Great let's get started!<br>\
     You are exploring the dense tropical jungles of India, where the majestic tiger roams. \
