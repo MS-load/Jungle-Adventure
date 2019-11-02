@@ -28,17 +28,18 @@
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Patua+One" rel="stylesheet">
 </head>
 
-<body class="text-center text-white d-flex flex-column justify-content-center align-items-center">
+<body class="text-center text-white d-flex flex-column justify-content-top align-items-center">
 
+     <!--Game Title -->
     <header>
         <div class="alert alert-success d-none" role="alert">"Try using one of the following commands to get passed this
             stage:"</div>
 
-        <h3 class="welcome mt-4 pt-md-5 mt-lg-2">Jungle Adventures</h3>
+        <h3 class="welcome mt-3">Jungle Adventures</h3>
     </header>
 
     <!--The game text -->
-    <main class="mt-1 col-11 mt-md-3 col-md-10">
+    <main class="mt-2 col-11 mt-md-3 col-md-10">
         <p id="gameText">Would you like to play our game?</p>
         <button type="button" onclick="userWantsToPlay()" class="btn btn-success">YES!</button>
         <div class="d-flex justify-content-center">
@@ -53,11 +54,12 @@
         </div>
     </main>
 
-    
-
-
-    <footer class="fixed-bottom d-flex flex-column justify-content-center align-items-center">
-        <img src="https://img.icons8.com/officel/80/000000/parrot.png">
+     <!--Input and help field -->
+    <footer class="fixed-bottom d-flex flex-column align-items-center col-11">
+        <div class="d-flex">
+            <img src="https://img.icons8.com/officel/80/000000/parrot.png">
+            <p class="bg-success d-none"></p>
+        </div>
         <div class="input-group mb-3 col-md-8 col-lg-4 d-none playerInput">
             <input type="text" class="form-control action" onfocus="this.value=''" value="type your selection here"
                 aria-label="playerInput" aria-describedby="playerInput">

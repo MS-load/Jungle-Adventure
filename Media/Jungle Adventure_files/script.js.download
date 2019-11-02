@@ -119,7 +119,7 @@ function changeScene1() {
 
     if (playerInput === "attack") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "avoid") {
         gameText.innerHTML += scenes[4]
@@ -140,7 +140,7 @@ function changeScene2() {
 
     if (playerInput === "eat") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "abstain") {
         gameText.innerHTML += scenes[6]
@@ -162,7 +162,7 @@ function changeScene3() {
 
     if (playerInput === "walk") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "jump") {
         gameText.innerHTML += scenes[5]
@@ -183,7 +183,7 @@ function changeScene4() {
 
     if (playerInput === "right") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "straight") {
         gameText.innerHTML += scenes[5]
@@ -225,7 +225,7 @@ function changeScene6() {
 
     if (playerInput === "right") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
 
     }
     else if (playerInput === "left") {
@@ -252,7 +252,7 @@ function changeScene7() {
     }
     else if (playerInput === "left") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -272,7 +272,7 @@ function changeScene8() {
     }
     else if (playerInput === "left") {
         gameText.innerHTML = scenes[9]
-        displayGameOver()
+        displayGameResult()
     }
     else if (playerInput === "help") {
         alert("Try using one of the following commands to get passed this stage:" + help[0])
@@ -284,7 +284,7 @@ function changeScene8() {
 /**
  * displays game over
  */
-function displayGameOver() {
+function displayGameResult() {
     let HideInputField = document.querySelector(".playerInput")
     HideInputField.style.display = "none"
     document.querySelector("body").style.backgroundImage = "url(./Media/Scene9.jpg)"

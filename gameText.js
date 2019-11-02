@@ -15,19 +15,14 @@ const scenes = [
      "<br> You continue along your path, but you hear something. You soon realize that it is a huge herd of elephants.\
       You are one tiny person and you don't want to be in their way. What do you do?",
 
-    "<br> You continue along your path, but you see a huge herd of bison blocking your way. \
-    You are one tiny person and you don't want to be in their way. What do you do?",
+    "<br> You continue along your path, but you see a huge bear blocking your way. \
+    It is looking directly at you. What do you do <b>run away</b> or <b>play dead</b>?",
 
-    "<br> You arrive at a cross road where ....\
-    which way would you go <b>left</b>,<b> right</b> or <b>straight</b>? \
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore \
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt \
-    in culpa qui officia deserunt mollit anim id est laborum.",
+    "<br>It begins to rain and you need to find some shelter quick.\
+     You need to find shelter you can either go into the <b>cave</b> or <b>set up camp</b?\
+     What do you choose to do?",
 
-    "<br> You arrive at a cross road where .... which way would you go left right or straight?",
+    "<br>The path then leads you to a ravine",
 
     "<br> Yay! You spot the magestic tiger. <b>Well done!</b>",
 
@@ -37,29 +32,29 @@ const scenes = [
     You are exploring the dense tropical jungles of India, where the majestic tiger roams. \
     Your <b>mission</b> is to find a path through the jungle to a place where you can <b>spot this elusive animal</b>.\
     Beware! The jungle is full of dangers and you need to be on your guard. \
-    If you need any help, you only need to <b>talk</b>to the birds!\
+    If you need any help, you only need to <b>talk</b> to the birds!\
     Also dont forget to <b>look</b> around and explore the beautiful jungle!\
-    Begin by entering your name below and click <b>'GO!'</b>"
+    Begin by entering your name below"
 ]
 
 const talk = [
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
+    "From up here all the roads ahead are beautiful",
+    "proceed",
+    "banana",
+    "life vest",
+    "c_i__b a _re_",
+    "Despite their size bears are usually quite quick",
     "need to add text ....incomplete",
     "need to add text ....incomplete",
 ]
 
 const look = [
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
-    "need to add text ....incomplete",
+    "Exotic plants, rainbow-colored birds, you can see and feel the magic of the jungle! ",
+    "On examining the fruit it looks a little suspicous!",
+    "You search your bag and find something you can offer the monkey ",
+    "There seems to be something that you wear lying by the tree, it could help you cross",
+    "On one side there is a herd of elephant and on the other you are surrounded by trees",
+    "Your not surround by much there isn't anything to hide behind",
     "need to add text ....incomplete",
     "need to add text ....incomplete",
 ]
