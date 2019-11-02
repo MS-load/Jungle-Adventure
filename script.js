@@ -1,7 +1,7 @@
 //Global Variables
 const input1 = document.querySelector(".name")
 const input2 = document.querySelector(".action")
-
+const gameTextBox = document.querySelector("main")
 /**
  * calls the gePLayerName on pressing the Enter key
  */
@@ -25,7 +25,7 @@ input2.addEventListener("keypress", function (event) {
  */
 function userWantsToPlay() {
     const gameText = document.getElementById("gameText")
-    gameText.innerHTML = scenes[10]
+    gameText.innerHTML = scenes[8]
     const playButton = document.querySelector("main .btn")
     playButton.style.display = "none"
     const nameField = document.querySelector(".userInput")
@@ -53,12 +53,11 @@ function setUpPlayField() {
     welcome.innerHTML = "Welcome to " + welcome.innerHTML
     const hideNameField = document.querySelector("main .btn")
     hideNameField.style.display = "none"
-    const unHideInputField = document.querySelector(".playerInput")
+    const unHideInputField = document.querySelector("footer")
     unHideInputField.classList.remove("d-none")
-    const gameTextBox = document.querySelector("main")
     gameTextBox.style.background = "rgba(0, 0, 0, 0.3)"
-    gameTextBox.scrollTop = gameTextBox.scrollHeight
     gameTextBox.style.maxHeight = "50vh"
+
 }
 
 /**
@@ -80,7 +79,8 @@ function getPlayerInput() {
     const getPlayerInput = input2.value
     playerInput = getPlayerInput.toLowerCase()
 
-    switch (sceneNumber) {
+    if (playerInput !== "quit")
+    {switch (sceneNumber) {
         case 0: changeScene0()
             break;
         case 1: changeScene1()
@@ -97,9 +97,11 @@ function getPlayerInput() {
             break;
         case 7: changeScene7()
             break;
-        case 8: changeScene8()
-            break;
+    }}
+    else {
+        displayGameResult("loose", 8)
     }
+    gameTextBox.scrollTop = gameTextBox.scrollHeight
 }
 
 /**
@@ -122,7 +124,7 @@ function displayNext(option, arrayNumber) {
     }
     else if (option === "jumble") {
         hint.classList.remove("d-none")
-        hint.innerHTML = "Im all scrambled :" + jumbleWord(talk[arrayNumber])
+        hint.innerHTML = "From up here it's scrambled : <br>" + jumbleWord(talk[arrayNumber])
 
     }
     else if (option === "scene") {
@@ -152,9 +154,9 @@ function changeScene0() {
         displayNext("look", 0)
     }
     else {
-            displayInvalidMove()
-        }
+        displayInvalidMove()
     }
+}
 
 /**
  * changes scene1 to the next required scene based on players response
@@ -162,8 +164,7 @@ function changeScene0() {
 function changeScene1() {
 
     if (playerInput === "eat") {
-        gameText.innerHTML = scenes[9]
-        displayGameResult("loose")
+        displayGameResult("loose", 1)
     }
     else if (playerInput === "proceed") {
         displayNext("scene", 4)
@@ -195,6 +196,7 @@ function changeScene2() {
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 2)
     }
 }
 
@@ -214,6 +216,7 @@ function changeScene3() {
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 3)
     }
 }
 
@@ -233,6 +236,7 @@ function changeScene4() {
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 4)
     }
 }
 
@@ -245,8 +249,7 @@ function changeScene5() {
         displayNext("scene", 7)
     }
     else if (playerInput === "run away") {
-        gameText.innerHTML = scenes[9]
-        displayGameResult("loose")
+        displayGameResult("loose", 5)
     }
     else if (playerInput === "talk") {
         displayNext("talk", 5)
@@ -256,6 +259,7 @@ function changeScene5() {
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 5)
     }
 }
 
@@ -264,19 +268,24 @@ function changeScene5() {
  */
 function changeScene6() {
 
-    if (playerInput === "right") {
-        gameText.innerHTML = scenes[9]
-        displayGameResult()
+    if (playerInput === "seek shelter") {
+        displayNext("scene", 7)
     }
-    else if (playerInput === "left") {
-        gameText.innerHTML += scenes[8]
-        displayWinner()
+    else if (playerInput === "set up camp") {
+        displayNext("scene", 2)
+    }
+    else if (playerInput === "continue") {
+        displayGameResult("loose", 6)
     }
     else if (playerInput === "talk") {
-        gameText.innerHTML += jumbleWord("tiger")
+        displayNext("talk", 6)
+    }
+    else if (playerInput === "look") {
+        displayNext("look", 6)
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 6)
     }
 }
 
@@ -285,66 +294,50 @@ function changeScene6() {
  */
 function changeScene7() {
 
-    if (playerInput === "right") {
-        gameText.innerHTML += scenes[2]
-        return sceneNumber = "2"
+    if (playerInput === "yes") {
+        displayGameResult("win", 0)
     }
-    else if (playerInput === "left") {
-        gameText.innerHTML = scenes[9]
-        displayGameResult("loose")
+    else if (playerInput === "no") {
+        displayGameResult("loose", 7)
     }
     else if (playerInput === "talk") {
-        gameText.innerHTML += jumbleWord("tiger")
+        displayNext("talk", 7)
+    }
+    else if (playerInput === "look") {
+        displayNext("look", 7)
     }
     else {
         displayInvalidMove()
+        //displayGameResult("loose", 7)
     }
 }
-
-/**
- * changes scene8
- */
-function changeScene8() {
-
-    if (playerInput === "right") {
-        displayWinner()
-    }
-    else if (playerInput === "left") {
-        gameText.innerHTML = scenes[9]
-        displayGameResult()
-    }
-    else if (playerInput === "talk") {
-        gameText.innerHTML += jumbleWord("tiger")
-    }
-    else {
-        displayInvalidMove()
-    }
-}
-
 /**
  * alerts the user that the move is not possible NOT WORKING
  */
 function displayInvalidMove() {
-        alert("I'm sorry, but that's not really an option you have! Try again or type 'help'")
- 
+    alert("I'm sorry, but that's not really an option you have! Try again or type 'help' ")
 }
 
 /**
  * displays game result
  * @param {string} gameResult if player wins or looses
+ * @param {number} arrayNumber for the game over text
  */
-function displayGameResult(gameResult) {
-    const HideInputField = document.querySelector(".playerInput")
+function displayGameResult(gameResult, arrayNumber) {
+    const HideInputField = document.querySelector("footer")
     HideInputField.style.display = "none"
+    gameTextBox.style.display = "none"
+
+    let welcome = document.querySelector(".welcome")
     if (gameResult === "win") {
-        document.querySelector("body").style.backgroundImage = "url(./Media/GameOver.jpg)"
+        document.querySelector("body").style.backgroundImage = "url(./Media/Win.jpg)"
+        welcome.innerHTML = "YOU WON ! <br>" + GameOverMessage[arrayNumber]
     }
     else {
         document.querySelector("body").style.backgroundImage = "url(./Media/GameOver.jpg)"
+        welcome.innerHTML = "GAME OVER <br>" + GameOverMessage[arrayNumber]
     }
-    let welcome = document.querySelector(".welcome")
-    welcome.innerHTML = " "
-    // setTimeout(function () { location.reload() }, 5000)
+    setTimeout(function () { location.reload() }, 5000)
 }
 
 /**
@@ -361,8 +354,7 @@ function jumbleWord(word) {
         jumbledArray.push(alphabetArray[arrayIndex])
         alphabetArray.splice(arrayIndex, 1)
     }
-
     const jumbledWord = jumbledArray.join("")
-    return "<br>Decode this to get past the scene : <b>" + jumbledWord + "</b>"
+    return jumbledWord
 }
 

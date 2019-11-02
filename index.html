@@ -30,7 +30,7 @@
 
 <body class="text-center text-white d-flex flex-column justify-content-top align-items-center">
 
-     <!--Game Title -->
+    <!--Game Title -->
     <header>
         <div class="alert alert-success d-none" role="alert">"Try using one of the following commands to get passed this
             stage:"</div>
@@ -45,26 +45,33 @@
         <div class="d-flex justify-content-center">
 
             <div class="input-group input-group-sm mb-3 col-9 col-md-6 col-lg-3 d-none userInput">
-                <input type="text" class="form-control name" placeholder="Player Name" aria-label="Player Name"
-                    aria-describedby="Player Name">
-                <div class="input-group-append">
-                    <button onclick="getPlayerName()" class="btn btn-success" type="button">GO</button>
+
+                <img src="https://img.icons8.com/officel/80/000000/parrot.png">
+
+                <div class="d-flex">
+                    <input type="text" class="form-control name" placeholder="Player Name" aria-label="Player Name"
+                        aria-describedby="Player Name">
+                    <div class="input-group-append">
+                        <button onclick="getPlayerName()" class="btn btn-success" type="button">GO</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-     <!--Input and help field -->
-    <footer class="fixed-bottom d-flex flex-column align-items-center col-11">
-        <div class="d-flex">
-            <img src="https://img.icons8.com/officel/80/000000/parrot.png">
-            <p class="bg-success d-none"></p>
-        </div>
-        <div class="input-group mb-3 col-md-8 col-lg-4 d-none playerInput">
-            <input type="text" class="form-control action" onfocus="this.value=''" value="type your selection here"
-                aria-label="playerInput" aria-describedby="playerInput">
-            <div class="input-group-append">
-                <button onclick="getPlayerInput()" class="btn btn-success" type="button">Submit</button>
+    <!--Input and help field -->
+    <footer class="fixed-bottom col-11 d-none">
+        <div class="d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center col-md-8 col-lg-4">
+                <img src="https://img.icons8.com/officel/80/000000/parrot.png">
+                <p class="bg-success d-none p-md-2"></p>
+            </div>
+            <div class="input-group mb-3 col-md-8 col-lg-4 playerInput">
+                <input type="text" class="form-control action" onfocus="this.value=''" value="type your selection here"
+                    aria-label="playerInput" aria-describedby="playerInput">
+                <div class="input-group-append">
+                    <button onclick="getPlayerInput()" class="btn btn-success" type="button">Submit</button>
+                </div>
             </div>
         </div>
     </footer>

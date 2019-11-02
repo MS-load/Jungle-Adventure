@@ -17,9 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------BACKGROUND-------------- */
 
 body {
-    /* background-image: url(./Media/Scene0.jpg); */
     background-image: url(./Media/Scene0.jpg);
-    background-position: top center;
+    /* background-image: url(./Media/GameOver.jpg); */
+    /* background-image: url(./Media/Win.jpg); */
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -31,7 +32,6 @@ b {
 }
 
 main {
-    height: 65vh;
     overflow: auto;
 }
 
