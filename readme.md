@@ -31,17 +31,31 @@ In order to sucessfully complete the game you need to reach the last scene<br>
 ***
 
 ### Credit:
-* Background images
-* * Homepage: Photo by Yoal Desurmont on Unsplash
-* * Winning page: Image by collinsvisual from Pixabay
-* * Loosing page: Photo by Daniel Hansen on Unsplash
-* Icons
-* * icons8.com
-* * Material-UI
-* Fonts
-* * Google fonts: 'Maven Pro', 'Patua One'
-* Music
-* * dayfox-jungle-copyright-free-music
+<ul>
+    <li>Background images
+        <ul>
+            <li>Homepage: Photo by Yoal Desurmont on Unsplash</li>
+            <li>Winning page: Image by collinsvisual from Pixabay</li>
+            <li>GameOver page: Photo by Daniel Hansen on Unsplash</li>
+        </ul>
+    </li>
+    <li>Icons
+        <ul>
+            <li>icons8.com</li>
+            <li>Material-UI</li>
+        </ul>
+    </li>
+    <li>Fonts
+        <ul>
+            <li>Google fonts: 'Maven Pro', 'Patua One'</li>
+        </ul>
+    </li>
+    <li>Music
+        <ul>
+            <li>dayfox-jungle-copyright-free-music</li>
+        </ul>
+    </li>
+</ul>
 
 ***
 
