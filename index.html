@@ -26,20 +26,22 @@
 
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="text-center text-white d-flex flex-column justify-content-top align-items-center">
 
-    <!--Game Title -->
-    <header>
-        <div class="alert alert-success d-none" role="alert">"Try using one of the following commands to get passed this
-            stage:"</div>
-
-        <h3 class="welcome mt-3">Jungle Adventure</h3>
+    <!--Game Title / Audio Track -->
+    <header class="d-flex">
+        <audio autoplay src="./Media/Jungle.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <h3 class="welcome mt-3">Jungle Adventure <i onclick="toggleMusic()" class="material-icons">music_note</i></h3>
     </header>
 
-    <!--The game text -->
+    <!--Game Body -->
     <main class="mt-2 col-11 mt-md-3 col-md-10">
+        <!--The game text -->
         <p id="gameText">You are exploring the dense tropical jungles of India.
             <br> Your <b>mission</b> is to find a path through the jungle to a place where you can
             <b>spot the elusive tiger</b>.<br>
@@ -60,13 +62,13 @@
         </div>
     </main>
 
-    <!--Input-2 and help field -->
+    <!--Input-2 / help field -->
     <footer class="fixed-bottom col-11 d-none">
         <div class="d-flex flex-column align-items-center">
             <!-- help/talk -->
             <div class="d-flex align-items-center col-md-8 col-lg-4">
                 <img src="https://img.icons8.com/officel/80/000000/parrot.png">
-                <p class="bg-success d-none p-md-2 rounded"></p>
+                <p class="d-none p-md-2 rounded"></p>
             </div>
             <!-- input-2 filed -->
             <div class="input-group mb-3 col-md-8 col-lg-4 playerInput">

@@ -11,7 +11,7 @@ html {
     line-height: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3{
     font-family: 'Patua One', Cursive;
 }
 
@@ -19,16 +19,15 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     background-image: url(./Media/Scene0.jpg);
-    /* background-image: url(./Media/GameOver.jpg); */
-    /* background-image: url(./Media/Win.jpg); */
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
+    overflow: hidden;
 }
 
-b {
+b, .material-icons {
     color: greenyellow;
 }
 

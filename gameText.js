@@ -1,3 +1,5 @@
+//All game related text 
+
 const scenes = [
     "Your journey begins with a fork in the road. Do you want to go <b>right</b>, <b>left</b> or <b>straight</b>?",
 
@@ -24,7 +26,8 @@ const scenes = [
 
     "You are happy to have found some company after a long journey. The fellow traveller shares his food\
     and water. He also knows the perfect location to spot the tiger. However he will share this only with \
-    someone worthy.<br>He then questions you:<br><b>Does a Tigers urine smell like buttered popcorn?</b>",
+    someone worthy.<br>He then questions you:<br>A tiger's stripes appear on its skin and not its fur <b>Yes</b> or\
+    <b>No</b>?",
 
     "Beware!<br>The jungle is full of dangers and you need to be on your guard.<br>\
     If you need any help, you only need to <b>talk</b> to the birds!<br>\
@@ -36,21 +39,21 @@ const talk = [
     "proceed",
     "banana",
     "lifevest",
-    "c_i__b a _re_",
+    "Maybe c_i__b a _re_",
     "Despite their size bears are usually quite quick",
     "You do look tired!",
     "Sorry if I knew this one I would have shown you the location myself!",
 ]
 
 const look = [
-    "Exotic plants, rainbow-colored birds, you can see and feel the magic of the jungle! ",
+    "Exotic plants, rainbow-colored birds, you see the magic of the jungle!",
     "On examining the fruit, it looks a little suspicious!",
-    "You search your bag and find something you can offer the monkey ",
-    "The view is simply spectacular. All you need is to wear it and get across!",
-    "On one side there is a herd of elephant and on the other you are surrounded by trees",
+    "In your bag find something that you can offer the monkey ",
+    "The view is simply spectacular. Wear it and get across!",
+    "On the adjacent side you are surrounded by tall trees",
     "There isn't any structure large enough to hide behind.",
     "It's raining heavy and the peacocks come out to dance",
-    "Something is smelling delicious!",
+    "Stripes are unique!",
 ]
 
 const GameOverMessage = [

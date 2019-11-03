@@ -7,6 +7,23 @@ const gameTextBox = document.querySelector("main")
 let scene2Wrong = 0, scene3Wrong = 0, scene4Wrong = 0
 
 /**
+ * toggles the audio between play and pause
+ */
+function toggleMusic() {
+    const music = document.querySelector("audio")
+    const isPaused = music.paused
+    const musicNote = document.querySelector(".material-icons")
+    if (isPaused) {
+        music.play()
+        musicNote.style.color = "yellowgreen"
+    }
+    else {
+        music.pause()
+        musicNote.style.color = "white"
+    }
+}
+
+/**
  * calls the gePLayerName on pressing the Enter key
  */
 input1.addEventListener("keypress", function (event) {
@@ -116,18 +133,29 @@ function displayNext(option, arrayNumber) {
     const hint = document.querySelector("footer p")
 
     if (option === "look") {
-        hint.classList.remove("d-none")
+        hint.classList.remove("d-none", "bg-danger")
+        hint.classList.add("bg-success")
         hint.innerHTML = look[arrayNumber]
     }
     else if (option === "talk") {
-        hint.classList.remove("d-none")
+        hint.classList.remove("d-none", "bg-danger")
+        hint.classList.add("bg-success")
         hint.innerHTML = talk[arrayNumber]
-
     }
     else if (option === "jumble") {
-        hint.classList.remove("d-none")
+        hint.classList.remove("d-none", "bg-danger")
+        hint.classList.add("bg-success")
         hint.innerHTML = "From up here it's scrambled : <br>" + jumbleWord(talk[arrayNumber])
-
+    }
+    else if (option === "wrongAnswer") {
+        hint.classList.remove("d-none", "bg-success")
+        hint.classList.add("bg-danger")
+        hint.innerHTML = "Sorry,wrong answer! Caution: limited number of tries!"
+    }
+    else if (option === "unknown") {
+        hint.classList.remove("d-none", "bg-success")
+        hint.classList.add("bg-danger")
+        hint.innerHTML = "Sorry, that's not an option! Try again: type 'talk' or 'look'"
     }
     else if (option === "scene") {
         gameText.innerHTML += "<p class='pt-1 border-top'>" + scenes[arrayNumber] + "</p>"
@@ -135,6 +163,8 @@ function displayNext(option, arrayNumber) {
         return sceneNumber = arrayNumber
     }
 }
+
+// All the scene are conditions defined below
 
 /**
  * changes scene0 to the next required scene based on players response
@@ -156,7 +186,7 @@ function changeScene0() {
         displayNext("look", 0)
     }
     else {
-        displayInvalidMove("unknown")
+        displayNext("unknown")
     }
 }
 
@@ -177,7 +207,7 @@ function changeScene1() {
         displayNext("look", 1)
     }
     else {
-        displayInvalidMove("unknown")
+        displayNext("unknown")
     }
 }
 
@@ -197,11 +227,11 @@ function changeScene2() {
     }
     else {
         scene2Wrong += 1
-        if (s0Mistakes >= 3) {
+        if (scene2Wrong >= 3) {
             displayGameResult("loose", 2)
         }
         else {
-            displayInvalidMove("wrongAnswer")
+            displayNext("wrongAnswer")
         }
     }
 }
@@ -221,11 +251,11 @@ function changeScene3() {
     }
     else {
         scene3Wrong += 1
-        if (s0Mistakes >= 3) {
+        if (scene3Wrong >= 3) {
             displayGameResult("loose", 3)
         }
         else {
-            displayInvalidMove("wrongAnswer")
+            displayNext("wrongAnswer")
         }
     }
 }
@@ -246,11 +276,11 @@ function changeScene4() {
     }
     else {
         scene4Wrong += 1
-        if (s0Mistakes >= 3) {
+        if (scene4Wrong >= 3) {
             displayGameResult("loose", 4)
         }
         else {
-            displayInvalidMove("wrongAnswer")
+            displayNext("wrongAnswer")
         }
     }
 }
@@ -273,7 +303,7 @@ function changeScene5() {
         displayNext("look", 5)
     }
     else {
-        displayInvalidMove("unknown")
+        displayNext("unknown")
     }
 }
 
@@ -298,7 +328,7 @@ function changeScene6() {
         displayNext("look", 6)
     }
     else {
-        displayInvalidMove("unknown")
+        displayNext("unknown")
     }
 }
 
@@ -320,25 +350,11 @@ function changeScene7() {
         displayNext("look", 7)
     }
     else {
-        displayInvalidMove("unknown")
+        displayNext("unknown")
     }
 }
 
-
-/**
- * alerts the user that the move is not possible or incorrect
- * @param {string} answer determines if the value is invalid and or wrong
- * invalid: the player continues to play
- * wrong: the player has only three chances (only in cetrain scenes)
- */
-function displayInvalidMove(answer) {
-    if (answer === "unknown") {
-        alert("I'm sorry, but that's not an option! Try again or type 'talk' or 'look'")
-    }
-    else {
-        alert("I'm sorry,wrong answer! Rember you have only a limited number of tires!")
-    }
-}
+//Other Game related functions
 
 /**
  * displays game result
@@ -379,4 +395,5 @@ function jumbleWord(word) {
     const jumbledWord = jumbledArray.join("")
     return jumbledWord
 }
+
 
