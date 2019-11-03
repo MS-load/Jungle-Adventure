@@ -24,9 +24,9 @@ const scenes = [
      It then suddenly begins to rain, you must now decide if you <b>seek shelter</b> with the fellow traveler,\
      <b>set up camp</b> on your own or <b>continue</b> your mission alone",
 
-    "You are happy to have found some company after a long journey. The fellow traveller shares his food\
-    and water. He also knows the perfect location to spot the tiger. However he will share this only with \
-    someone worthy.<br>He then questions you:<br>A tiger's stripes appear on its skin and not its fur <b>Yes</b> or\
+    "You are happy to have found company after a long journey. The fellow traveller shares food\
+    and water. He also knows the perfect location to spot the tiger but will share this only with \
+    someone worthy.<br>He then questions you:<br>A tiger's stripes appear on its skin and not its fur <b>Yes</b> /\
     <b>No</b>?",
 
     "Beware!<br>The jungle is full of dangers and you need to be on your guard.<br>\
