@@ -35,21 +35,22 @@
         <div class="alert alert-success d-none" role="alert">"Try using one of the following commands to get passed this
             stage:"</div>
 
-        <h3 class="welcome mt-3">Jungle Adventures</h3>
+        <h3 class="welcome mt-3">Jungle Adventure</h3>
     </header>
 
     <!--The game text -->
     <main class="mt-2 col-11 mt-md-3 col-md-10">
-        <p id="gameText">Would you like to play our game?</p>
+        <p id="gameText">You are exploring the dense tropical jungles of India.
+            <br> Your <b>mission</b> is to find a path through the jungle to a place where you can
+            <b>spot the elusive tiger</b>.<br>
+            <br>Would you like to play?</p>
         <button type="button" onclick="userWantsToPlay()" class="btn btn-success">YES!</button>
         <div class="d-flex justify-content-center">
-
+            <!-- input-1 filed -->
             <div class="input-group input-group-sm mb-3 col-9 col-md-6 col-lg-3 d-none userInput">
-
                 <img src="https://img.icons8.com/officel/80/000000/parrot.png">
-
                 <div class="d-flex">
-                    <input type="text" class="form-control name" placeholder="Player Name" aria-label="Player Name"
+                    <input type="text" class="form-control name" placeholder="Enter name" aria-label="Player Name"
                         aria-describedby="Player Name">
                     <div class="input-group-append">
                         <button onclick="getPlayerName()" class="btn btn-success" type="button">GO</button>
@@ -59,13 +60,15 @@
         </div>
     </main>
 
-    <!--Input and help field -->
+    <!--Input-2 and help field -->
     <footer class="fixed-bottom col-11 d-none">
         <div class="d-flex flex-column align-items-center">
+            <!-- help/talk -->
             <div class="d-flex align-items-center col-md-8 col-lg-4">
                 <img src="https://img.icons8.com/officel/80/000000/parrot.png">
-                <p class="bg-success d-none p-md-2"></p>
+                <p class="bg-success d-none p-md-2 rounded"></p>
             </div>
+            <!-- input-2 filed -->
             <div class="input-group mb-3 col-md-8 col-lg-4 playerInput">
                 <input type="text" class="form-control action" onfocus="this.value=''" value="type your selection here"
                     aria-label="playerInput" aria-describedby="playerInput">

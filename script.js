@@ -1,7 +1,11 @@
+
 //Global Variables
 const input1 = document.querySelector(".name")
 const input2 = document.querySelector(".action")
 const gameTextBox = document.querySelector("main")
+//To provide only 3 trials for wrong answer in certain scenes
+let scene2Wrong = 0, scene3Wrong = 0, scene4Wrong = 0
+
 /**
  * calls the gePLayerName on pressing the Enter key
  */
@@ -49,15 +53,12 @@ function getPlayerName() {
  * adds a background to the div
 */
 function setUpPlayField() {
-    const welcome = document.querySelector(".welcome")
-    welcome.innerHTML = "Welcome to " + welcome.innerHTML
     const hideNameField = document.querySelector("main .btn")
     hideNameField.style.display = "none"
     const unHideInputField = document.querySelector("footer")
     unHideInputField.classList.remove("d-none")
     gameTextBox.style.background = "rgba(0, 0, 0, 0.3)"
     gameTextBox.style.maxHeight = "50vh"
-
 }
 
 /**
@@ -76,7 +77,7 @@ function beginGame(name) {
  * determines what to display next before the next input is entered
  */
 function getPlayerInput() {
-    const getPlayerInput = input2.value
+    let getPlayerInput = input2.value
     playerInput = getPlayerInput.toLowerCase()
 
     if (playerInput !== "quit") {
@@ -129,7 +130,7 @@ function displayNext(option, arrayNumber) {
 
     }
     else if (option === "scene") {
-        gameText.innerHTML += scenes[arrayNumber]
+        gameText.innerHTML += "<p class='pt-1 border-top'>" + scenes[arrayNumber] + "</p>"
         hint.classList.add("d-none")
         return sceneNumber = arrayNumber
     }
@@ -155,7 +156,7 @@ function changeScene0() {
         displayNext("look", 0)
     }
     else {
-        displayInvalidMove()
+        displayInvalidMove("unknown")
     }
 }
 
@@ -163,7 +164,6 @@ function changeScene0() {
  * changes scene1 to the next required scene based on players response
  */
 function changeScene1() {
-
     if (playerInput === "eat") {
         displayGameResult("loose", 1)
     }
@@ -177,7 +177,7 @@ function changeScene1() {
         displayNext("look", 1)
     }
     else {
-        displayInvalidMove()
+        displayInvalidMove("unknown")
     }
 }
 
@@ -196,8 +196,13 @@ function changeScene2() {
         displayNext("look", 2)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 2)
+        scene2Wrong += 1
+        if (s0Mistakes >= 3) {
+            displayGameResult("loose", 2)
+        }
+        else {
+            displayInvalidMove("wrongAnswer")
+        }
     }
 }
 
@@ -205,8 +210,7 @@ function changeScene2() {
  * changes scene3 to the next required scene based on players response
  */
 function changeScene3() {
-
-    if (playerInput === "life vest") {
+    if (playerInput === "lifevest") {
         displayNext("scene", 6)
     }
     else if (playerInput === "talk") {
@@ -216,8 +220,13 @@ function changeScene3() {
         displayNext("look", 3)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 3)
+        scene3Wrong += 1
+        if (s0Mistakes >= 3) {
+            displayGameResult("loose", 3)
+        }
+        else {
+            displayInvalidMove("wrongAnswer")
+        }
     }
 }
 
@@ -230,14 +239,19 @@ function changeScene4() {
         displayNext("scene", 5)
     }
     else if (playerInput === "talk") {
-        displayNext("jumble", 4)
+        displayNext("talk", 4)
     }
     else if (playerInput === "look") {
         displayNext("look", 4)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 4)
+        scene4Wrong += 1
+        if (s0Mistakes >= 3) {
+            displayGameResult("loose", 4)
+        }
+        else {
+            displayInvalidMove("wrongAnswer")
+        }
     }
 }
 
@@ -259,8 +273,7 @@ function changeScene5() {
         displayNext("look", 5)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 5)
+        displayInvalidMove("unknown")
     }
 }
 
@@ -285,8 +298,7 @@ function changeScene6() {
         displayNext("look", 6)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 6)
+        displayInvalidMove("unknown")
     }
 }
 
@@ -308,15 +320,24 @@ function changeScene7() {
         displayNext("look", 7)
     }
     else {
-        displayInvalidMove()
-        //displayGameResult("loose", 7)
+        displayInvalidMove("unknown")
     }
 }
+
+
 /**
- * alerts the user that the move is not possible NOT WORKING
+ * alerts the user that the move is not possible or incorrect
+ * @param {string} answer determines if the value is invalid and or wrong
+ * invalid: the player continues to play
+ * wrong: the player has only three chances (only in cetrain scenes)
  */
-function displayInvalidMove() {
-    alert("I'm sorry, but that's not really an option you have! Try again or type 'help' ")
+function displayInvalidMove(answer) {
+    if (answer === "unknown") {
+        alert("I'm sorry, but that's not an option! Try again or type 'talk' or 'look'")
+    }
+    else {
+        alert("I'm sorry,wrong answer! Rember you have only a limited number of tires!")
+    }
 }
 
 /**
@@ -338,7 +359,7 @@ function displayGameResult(gameResult, arrayNumber) {
         document.querySelector("body").style.backgroundImage = "url(./Media/GameOver.jpg)"
         welcome.innerHTML = "GAME OVER <br>" + GameOverMessage[arrayNumber]
     }
-    setTimeout(function () { location.reload() }, 5000)
+    setTimeout(function () { location.reload() }, 7000)
 }
 
 /**
