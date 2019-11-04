@@ -121,6 +121,7 @@ function getPlayerInput() {
         displayGameResult("loose", 8)
     }
     gameTextBox.scrollTop = gameTextBox.scrollHeight
+    input2.value = ""
 }
 
 /**
